@@ -1,0 +1,140 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+.main {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.hrline {
+    border: none;
+    background-color: black;
+    height: 4px;
+}
+
+.contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.mycontact {
+    float: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 3px;
+    font-size: 20px;
+}
+
+#ph{
+    padding-right: 5px;
+}
+
+#vertical {
+    width: 0px;
+    height: 50px;
+    background-color: black;
+    padding-left: 2px;
+    padding-right: 2px;
+    margin: 2px;
+}
+
+.objective {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px 0;
+}
+
+.objective .obj {
+    margin-right: 100px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.education {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px 0;
+}
+
+.education .edu {
+    margin-right: 100px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.experience {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px 0;
+}
+
+.experience .exp {
+    margin-right: 100px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.skills {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px 0;
+}
+
+.two-column-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+.two-column-list li {
+    width: 50%; /* Two items per row */
+    box-sizing: border-box;
+}
+
+.skills .skill {
+    margin-right: 100px;
+    padding-left: 40px;
+    padding-right: 30px;
+}
+
+.sk{
+    float: left;
+    padding-left: 100px;
+    padding-right: 90px;
+}
+
+.projects {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px 0;
+}
+
+.projects .pro {
+    margin-right: 100px;
+    padding-left: 40px;
+    padding-right: 30px;
+}
+
+.achievement {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px 0;
+}
+
+.achievement .ach {
+    margin-right: 100px;
+    padding-left: 10px;
+    padding-right: 20px;
+}
