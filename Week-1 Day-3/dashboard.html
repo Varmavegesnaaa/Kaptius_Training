@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - MyShop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">MyShop</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count" class="cart-count">0</span>
+                </a>
+            </li>
+            <li class="user-dropdown">
+                <a href="#" class="user-icon" id="user-icon">
+                    <i class="fas fa-user"></i>
+                </a>
+                <div class="dropdown-content" id="dropdown-content" style="display: none;">
+                    <a href="index.html" id="logout">Logout</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="image-section">
+        Welcome to MyShop
+    </div>
+
+    <div class="products">
+        <div class="product">
+            <img src="onion_raw-removebg-preview.png" style="width: 200px; height: 100px;" alt="Product 1">
+            <h3>Onions</h3>
+            <p><span style="font-size: 20px;">Price</span> : Rs.40/kg</p>
+            <button class="add-to-cart" data-product="Onions" data-price="40/kg">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="potato-removebg-preview.png"  style="width: 200px; height: 100px;" alt="Product 2">
+            <h3>Potatoes</h3>
+            <p><span style="font-size: 20px;">Price</span> : Rs.30/kg</p>
+            <button class="add-to-cart" data-product="Potatoes" data-price="30/kg">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="carrot-removebg-preview.png" style="width: 200px; height: 100px;" alt="Product 3">
+            <h3>Carrot</h3>
+            <p><span style="font-size: 20px;">Price</span> : Rs.50/kg</p>
+            <button class="add-to-cart" data-product="Carrot" data-price="50/kg">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="capsicum-removebg-preview.png" style="width: 200px; height: 100px;" alt="Product 1">
+            <h3>Capsicum</h3>
+            <p><span style="font-size: 20px;">Price</span> : Rs.80/kg</p>
+            <button class="add-to-cart" data-product="Capsicum" data-price="80/kg">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="brinjal-removebg-preview.png" style="width: 200px; height: 100px;" alt="Product 2">
+            <h3>Brinjal</h3>
+            <p><span style="font-size: 20px;">Price</span> : Rs.40/kg</p>
+            <button class="add-to-cart" data-product="Brinjal" data-price="40/kg">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="apple-removebg-preview.png" style="width: 200px; height: 100px;" alt="Product 3">
+            <h3>Apples</h3>
+            <p><span style="font-size: 20px;">Price</span> : Rs.25/piece</p>
+            <button class="add-to-cart" data-product="Apples" data-price="25/piece">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="dates-removebg-preview.png" style="width: 200px; height: 100px;" alt="Product 1">
+            <h3>Dates</h3>
+            <p><span style="font-size: 20px;">Price</span> : Rs.250/kg</p>
+            <button class="add-to-cart" data-product="Dates" data-price="250/kg">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="salt-removebg-preview.png" style="width: 200px; height: 100px;" alt="Product 2">
+            <h3>Salt</h3>
+            <p><span style="font-size: 20px;">Price</span> : Rs.30/kg</p>
+            <button class="add-to-cart" data-product="Salt" data-price="30/kg">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="toor_dal-removebg-preview.png" style="width: 200px; height: 100px;" alt="Product 3">
+            <h3>Toor Dal</h3>
+            <p><span style="font-size: 20px;">Price</span> : Rs.170/kg</p>
+            <button class="add-to-cart" data-product="Toor Dal" data-price="170/kg">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="ground-removebg-preview.png" style="width: 200px; height: 100px;" alt="Product 1">
+            <h3>Groundnuts</h3>
+            <p><span style="font-size: 20px;">Price</span> : Rs.160/kg</p>
+            <button class="add-to-cart" data-product="Groundnuts" data-price="160/kg">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="coriander-removebg-preview.png" style="width: 200px; height: 100px;" alt="Product 2">
+            <h3>Coriander</h3>
+            <p><span style="font-size: 20px;">Price</span> : Rs.30/bunch</p>
+            <button class="add-to-cart" data-product="Coriander" data-price="30/bunch">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="palakura-removebg-preview.png" style="width: 200px; height: 100px;" alt="Product 3">
+            <h3>Palak</h3>
+            <p><span style="font-size: 20px;">Price</span> : Rs.20/bunch</p>
+            <button class="add-to-cart" data-product="Palak" data-price="20/bunch">Add to Cart</button>
+        </div>
+
+    <script>
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', () => {
+                let productName = button.getAttribute('data-product');
+                let productPrice = button.getAttribute('data-price');
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                cart.push({'productName':productName,'productPrice':productPrice});
+                localStorage.setItem('cart', JSON.stringify(cart));
+
+                let cartCount = document.getElementById('cart-count');
+                cartCount.innerText = cart.length;
+            });
+        });
+
+        document.getElementById('logout').addEventListener('click', () => {
+            // Add logout functionality here
+            alert('Logged out!');
+        });
+
+        document.getElementById('user-icon').addEventListener('click', (event) => {
+            event.preventDefault();
+            let dropdown = document.getElementById('dropdown-content');
+            if (dropdown.style.display === 'none' || dropdown.style.display === '') {
+                dropdown.style.display = 'block';
+            } else {
+                dropdown.style.display = 'none';
+            }
+        });
+
+        // Initialize cart count on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let cartCount = document.getElementById('cart-count');
+            cartCount.innerText = cart.length;
+        });
+    </script>
+</body>
+</html>
