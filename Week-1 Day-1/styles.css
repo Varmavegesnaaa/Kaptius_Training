@@ -138,3 +138,49 @@ body {
     padding-left: 10px;
     padding-right: 20px;
 }
+
+@media (max-width: 768px) {
+    .main {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .contact, .objective, .education, .experience, .skills, .projects, .achievement {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .mycontact, .objective .obj, .education .edu, .experience .exp, .skills .skill, .projects .pro, .achievement .ach {
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+        font-size: 18px;
+    }
+
+    .two-column-list li {
+        width: 100%;
+    }
+
+    .hrline {
+        height: 2px;
+    }
+}
+
+@media (max-width: 480px) {
+    .mycontact {
+        font-size: 16px;
+    }
+
+    .objective .obj, .education .edu, .experience .exp, .skills .skill, .projects .pro, .achievement .ach {
+        font-size: 16px;
+    }
+
+    .main {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .two-column-list {
+        flex-direction: column;
+    }
+}
