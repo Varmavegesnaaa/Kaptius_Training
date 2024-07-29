@@ -32,7 +32,6 @@ function highlightSearchTerm(text, searchTerm) {
     while (high <= text.length) {
         if (text.substring(low, high) === searchTerm) {
             text = text.substring(0, low) + '*' + searchTerm + '*' + text.substring(high);
-            high += 2;
         }
         low += 1;
         high += 1;
