@@ -1,8 +1,6 @@
 function capitaliseStrings(arr) {
-    // Using built-in string method
     let capitalisedBuiltIn = arr.map(str => str.toUpperCase());
 
-    // Manually replacing each character with an uppercase letter
     let capitalisedManual = arr.map(str => {
         let upperStr = '';
         for (let i = 0; i < str.length; i++) {
@@ -12,11 +10,11 @@ function capitaliseStrings(arr) {
         return upperStr;
     });
 
-    return capitalisedBuiltIn; // or return capitalisedManual;
+    return capitalisedBuiltIn;
 }
 
-console.log(capitaliseStrings(["hello", "world"])); // Output: ["HELLO", "WORLD"]
-console.log(capitaliseStrings(["javascript", "arrays"])); // Output: ["JAVASCRIPT", "ARRAYS"]
+console.log(capitaliseStrings(["hello", "world"]));
+console.log(capitaliseStrings(["javascript", "arrays"]));
 
 //----------------------------------------------------------------------------------------------------
 
@@ -32,8 +30,8 @@ function findPrimeNumbers(arr) {
     return arr.filter(isPrime);
 }
 
-console.log(findPrimeNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])); // Output: [2, 3, 5, 7]
-console.log(findPrimeNumbers([10, 11, 12, 13, 14, 15])); // Output: [11, 13] 
+console.log(findPrimeNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+console.log(findPrimeNumbers([10, 11, 12, 13, 14, 15]));
 
 //-----------------------------------------------------------------------------------------------------
 

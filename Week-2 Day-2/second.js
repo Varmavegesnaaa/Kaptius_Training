@@ -40,5 +40,5 @@ function findAverage(arr) {
     return sum / arr.length;
 }
 
-console.log([1,2,3,4,5],findAverage([1, 2, 3, 4, 5])); 
+console.log([1,2,3,4,5],findAverage([1, 2, 3, 4, 11])); 
 console.log([10,20,30],findAverage([10, 20, 30]));
