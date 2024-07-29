@@ -1,6 +1,6 @@
 function storeUserData() {
     const user = {
-        name: "John Doe",
+        name: "gnana",
         age: 30,
         salary: 50000,
         skills: ["JavaScript", "HTML", "CSS"]
