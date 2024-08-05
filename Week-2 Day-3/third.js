@@ -32,6 +32,8 @@ function highlightSearchTerm(text, searchTerm) {
     while (high <= text.length) {
         if (text.substring(low, high) === searchTerm) {
             text = text.substring(0, low) + '*' + searchTerm + '*' + text.substring(high);
+            high+=2;
+            low+=2;
         }
         low += 1;
         high += 1;
@@ -42,4 +44,4 @@ function highlightSearchTerm(text, searchTerm) {
 
 
 console.log(highlightSearchTerm("JavaScript is a programming language. JavaScript is widely used.", "JavaScript"));
-console.log(highlightSearchTerm("The quick brown fox jumps over the lazy dog.", "dog"));
+console.log(highlightSearchTerm("The quick brown fox jumps over the lazy dog dog dog.", "dog"));

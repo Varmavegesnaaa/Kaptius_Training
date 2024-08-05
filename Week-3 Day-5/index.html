@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Catalog System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .navbar {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #007bff;
+        }
+
+        .form-section, .book-list {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .form-section {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 5px 0;
+            font-weight: bold;
+        }
+
+        input[type="text"], select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .book-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .book-list li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#" id="showAddBook">Add Book</a>
+        <a href="#" id="showBooks">Show Books</a>
+    </div>
+
+    <div class="container">
+        <div class="form-section" id="addBookSection">
+            <h2>Add New Book</h2>
+            <form id="addBookForm">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+
+                <label for="author">Author:</label>
+                <input type="text" id="author" name="author" required>
+
+                <label for="isbn">ISBN:</label>
+                <input type="text" id="isbn" name="isbn" required>
+
+                <label for="genre">Genre:</label>
+                <input type="text" id="genre" name="genre" required>
+
+                <label for="availability">Availability:</label>
+                <select id="availability" name="availability" required>
+                    <option value="available">Available</option>
+                    <option value="checked out">Checked Out</option>
+                </select>
+
+                <button type="submit">Add Book</button>
+            </form>
+        </div>
+
+        <div class="form-section" id="searchBooksSection">
+            <h2>Search Books</h2>
+            <form id="searchBookForm">
+                <label for="searchTitle">Title:</label>
+                <input type="text" id="searchTitle" name="searchTitle">
+
+                <label for="searchAuthor">Author:</label>
+                <input type="text" id="searchAuthor" name="searchAuthor">
+
+                <label for="searchGenre">Genre:</label>
+                <input type="text" id="searchGenre" name="searchGenre">
+
+                <button type="submit">Search</button>
+            </form>
+        </div>
+
+        <div class="book-list" id="bookListSection">
+            <h2>Library Catalog</h2>
+            <ul id="bookList"></ul>
+        </div>
+    </div>
+
+    <script>
+        class Book {
+            constructor(title, author, isbn, genre, availability) {
+                this.title = title;
+                this.author = author;
+                this.isbn = isbn;
+                this.genre = genre;
+                this.availability = availability;
+            }
+
+            displayDetails() {
+                return `${this.title} by ${this.author} - ISBN: ${this.isbn} - Genre: ${this.genre} - Availability: ${this.availability}`;
+            }
+        }
+
+        class LibraryCatalog {
+            constructor() {
+                this.books = [];
+                this.loadFromLocalStorage();
+                this.displayBooks();
+            }
+
+            addBook(book) {
+                this.books.push(book);
+                this.saveToLocalStorage();
+                this.displayBooks();
+            }
+
+            searchBooks(title = '', author = '', genre = '') {
+                return this.books.filter(book =>
+                    (title === '' || book.title.toLowerCase().includes(title.toLowerCase())) &&
+                    (author === '' || book.author.toLowerCase().includes(author.toLowerCase())) &&
+                    (genre === '' || book.genre.toLowerCase().includes(genre.toLowerCase()))
+                );
+            }
+
+            displayBooks() {
+                const bookList = document.getElementById('bookList');
+                bookList.innerHTML = '';
+                this.books.forEach(book => {
+                    const li = document.createElement('li');
+                    li.textContent = book.displayDetails();
+                    bookList.appendChild(li);
+                });
+            }
+
+            saveToLocalStorage() {
+                localStorage.setItem('libraryCatalog', JSON.stringify(this.books));
+            }
+
+            loadFromLocalStorage() {
+                const data = localStorage.getItem('libraryCatalog');
+                if (data) {
+                    const books = JSON.parse(data);
+                    this.books = books.map(bookData => new Book(bookData.title, bookData.author, bookData.isbn, bookData.genre, bookData.availability));
+                }
+            }
+        }
+
+        const libraryCatalog = new LibraryCatalog();
+
+        document.getElementById('addBookForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const title = document.getElementById('title').value;
+            const author = document.getElementById('author').value;
+            const isbn = document.getElementById('isbn').value;
+            const genre = document.getElementById('genre').value;
+            const availability = document.getElementById('availability').value;
+
+            const newBook = new Book(title, author, isbn, genre, availability);
+            libraryCatalog.addBook(newBook);
+
+            this.reset();
+            showSection('bookListSection');
+        });
+
+        document.getElementById('searchBookForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const title = document.getElementById('searchTitle').value;
+            const author = document.getElementById('searchAuthor').value;
+            const genre = document.getElementById('searchGenre').value;
+
+            const results = libraryCatalog.searchBooks(title, author, genre);
+            const bookList = document.getElementById('bookList');
+            bookList.innerHTML = '';
+
+            if (results.length === 0) {
+                bookList.innerHTML = '<li>No books found</li>';
+            } else {
+                results.forEach(book => {
+                    const li = document.createElement('li');
+                    li.textContent = book.displayDetails();
+                    bookList.appendChild(li);
+                });
+            }
+            showSection('bookListSection');
+        });
+
+        function showSection(sectionId) {
+            document.querySelectorAll('.form-section, .book-list').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        document.getElementById('showAddBook').addEventListener('click', function() {
+            showSection('addBookSection');
+        });
+
+        document.getElementById('showBooks').addEventListener('click', function() {
+            showSection('bookListSection');
+        });
+
+        showSection('bookListSection');
+    </script>
+</body>
+</html>
